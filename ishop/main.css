@@ -1,0 +1,17 @@
+.ItemsTable
+{
+    display: grid
+}
+.Item
+{
+
+}
+.ItemImage
+{
+    block-size: inherit
+}
+.ItemTd
+{
+    display: flex; 
+     height: 200px;
+}
