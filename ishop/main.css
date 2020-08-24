@@ -8,10 +8,28 @@
 }
 .ItemImage
 {
-    block-size: inherit
+    height: 150px;
+    animation-direction: alternate;
+    align-content: baseline;
+}
+.ImageDiv
+{
+    float: right;
+    margin-right: 20px;
 }
 .ItemTd
 {
-    display: flex; 
-     height: 200px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: #cabcbc69;
+    margin: 5px;
+}
+.Description
+{
+    float: left;
+    clear: right;
+    align-self: center;
+    padding: 40px;
 }

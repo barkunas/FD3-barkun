@@ -49,7 +49,8 @@ var ItemsTable = React.createClass({
             ];
             var $description = React.DOM.ul({ className: "Description" }, ...descriptionArr);
             var $image = React.DOM.img({ className: 'ItemImage',src:'img/'+item.image+'.jpeg' });
-            var $item = React.DOM.tr({ className: 'Item', key: item.id }, React.DOM.td({className:"ItemTd"}, $description,$image));
+            var $imageDiv = React.DOM.div({className:"ImageDiv"},$image)
+            var $item = React.DOM.tr({ className: 'Item', key: item.id }, React.DOM.td({className:"ItemTd"}, $description,$imageDiv));
             tableChildren.push($item)
         });
         return React.DOM.table({ className: 'ItemsTable' }, React.DOM.tbody({ className: "ItemsBody" }, tableChildren));
