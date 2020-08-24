@@ -1,6 +1,6 @@
 .ItemsTable
 {
-    display: grid
+    display: grid;
 }
 .ShopName
 {
@@ -11,6 +11,7 @@
     background: #00d61a69;
     margin: 5px;
     padding: 20px;
+    font-size: -webkit-xxx-large;
 }
 .ItemImage
 {
