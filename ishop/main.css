@@ -2,9 +2,15 @@
 {
     display: grid
 }
-.Item
+.ShopName
 {
-
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: #00d61a69;
+    margin: 5px;
+    padding: 20px;
 }
 .ItemImage
 {
@@ -32,4 +38,6 @@
     clear: right;
     align-self: center;
     padding: 40px;
+    list-style-type: none;
+    font-family: fantasy;
 }

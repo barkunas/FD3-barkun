@@ -1,5 +1,4 @@
-var shopName = "Coffe Shop 24";
-
+var shopName = "Coffee Shop 24";
 var data = [
     {
         id: 321413,
@@ -35,25 +34,38 @@ var data = [
 ];
 
 var ItemsTable = React.createClass({
-
     displayName: 'ItemsTable',
-
+    propTypes: {
+        shopName: React.PropTypes.string,
+        data: React.PropTypes.arrayOf(React.PropTypes.shape({
+            id: React.PropTypes.number,
+            name: React.PropTypes.string,
+            price: React.PropTypes.number,
+            image: React.PropTypes.string,
+            balance: React.PropTypes.number,
+        })),
+    },
     getDefaultProps: function () {
-        return { question: "Вопрос ни о чём" }
+        return {
+            shopName: "Упс! Что-то пошло не так",
+            data: []
+        }
     },
 
     render: function () {
+        var $shopName = React.DOM.thead({}, React.DOM.tr({}, React.DOM.td({ className: "ShopName" }, this.props.shopName)))
         var tableChildren = this.props.data.map(item => {
+            if (item.balance <= 0) { return };
             var descriptionArr = [
                 React.DOM.li({ className: 'ItemName' }, item.name),
                 React.DOM.li({ className: 'ItemPrice' }, item.price)
             ];
             var $description = React.DOM.ul({ className: "Description" }, ...descriptionArr);
-            var $image = React.DOM.img({ className: 'ItemImage', src: 'img/' + item.image + '.jpeg' });
-            var $imageDiv = React.DOM.div({ className: "ImageDiv" }, $image)
-            return  React.DOM.tr({ className: 'Item', key: item.id }, React.DOM.td({ className: "ItemTd" }, $description, $imageDiv));
+            var $image = React.DOM.img({ className: 'ItemImage', src: getImagePath(item.image) });
+            var $imageDiv = React.DOM.div({ className: "ImageDiv" }, $image);
+            return React.DOM.tr({ className: 'Item', key: item.id }, React.DOM.td({ className: "ItemTd" }, $description, $imageDiv));
         });
-        return React.DOM.table({ className: 'ItemsTable' }, React.DOM.tbody({ className: "ItemsBody" }, tableChildren));
+        return React.DOM.table({ className: 'ItemsTable' }, $shopName, React.DOM.tbody({ className: "ItemsBody" }, tableChildren));
     },
 
 });
@@ -62,3 +74,7 @@ ReactDOM.render(
     React.createElement(ItemsTable, { shopName: shopName, data: data }),
     document.getElementById('container')
 );
+
+function getImagePath(name) {
+    return 'img/' + name + '.jpeg'
+}
