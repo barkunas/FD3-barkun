@@ -1,3 +1,5 @@
+var shopName = "Coffe Shop 24";
+
 var data = [
     {
         id: 321413,
@@ -41,17 +43,15 @@ var ItemsTable = React.createClass({
     },
 
     render: function () {
-        var tableChildren = [];
-        this.props.data.forEach(item => {
+        var tableChildren = this.props.data.map(item => {
             var descriptionArr = [
                 React.DOM.li({ className: 'ItemName' }, item.name),
                 React.DOM.li({ className: 'ItemPrice' }, item.price)
             ];
             var $description = React.DOM.ul({ className: "Description" }, ...descriptionArr);
-            var $image = React.DOM.img({ className: 'ItemImage',src:'img/'+item.image+'.jpeg' });
-            var $imageDiv = React.DOM.div({className:"ImageDiv"},$image)
-            var $item = React.DOM.tr({ className: 'Item', key: item.id }, React.DOM.td({className:"ItemTd"}, $description,$imageDiv));
-            tableChildren.push($item)
+            var $image = React.DOM.img({ className: 'ItemImage', src: 'img/' + item.image + '.jpeg' });
+            var $imageDiv = React.DOM.div({ className: "ImageDiv" }, $image)
+            return  React.DOM.tr({ className: 'Item', key: item.id }, React.DOM.td({ className: "ItemTd" }, $description, $imageDiv));
         });
         return React.DOM.table({ className: 'ItemsTable' }, React.DOM.tbody({ className: "ItemsBody" }, tableChildren));
     },
@@ -59,6 +59,6 @@ var ItemsTable = React.createClass({
 });
 
 ReactDOM.render(
-    React.createElement(ItemsTable, { data: data }),
+    React.createElement(ItemsTable, { shopName: shopName, data: data }),
     document.getElementById('container')
 );
