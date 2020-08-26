@@ -15,17 +15,19 @@
 }
 .ItemImage
 {
-    height: 150px;
+    height: 100%;
     animation-direction: alternate;
     align-content: baseline;
 }
 .ImageDiv
 {
+    height: 150px;
     float: right;
     margin-right: 20px;
 }
 .ItemTd
 {
+    padding: 0px;
     display: inline-block;
     width: 100%;
     box-sizing: border-box;
