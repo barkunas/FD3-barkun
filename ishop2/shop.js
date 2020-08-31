@@ -30,21 +30,21 @@ var Shop = React.createClass({
                 URL: "-",
                 Quantity: "-"
             }]
-        }
-        this.setState({ data: newData })
+        };
+        this.setState({ data: newData });
 
     },
     render: function () {
         var headNamesArr = Object.keys(this.state.data[0]).map(headName => {
             return React.DOM.td({}, headName)
         });
-        headNamesArr.push(React.DOM.td({}, 'Control'))
+        headNamesArr.push(React.DOM.td({}, 'Control'));
 
-        var $thead = React.DOM.thead({}, React.DOM.tr({}, ...headNamesArr))
+        var $thead = React.DOM.thead({}, React.DOM.tr({}, ...headNamesArr));
         var itemsArr = this.state.data.map((itemData) => {
-            return React.createElement(Item, { data: itemData, removeItem: this.removeItem })
+            return React.createElement(Item, { data: itemData, removeItem: this.removeItem, key: itemData.Name, })
         });
-        var $tbody = React.DOM.tbody({}, ...itemsArr);
+        var $tbody = React.DOM.tbody({}, itemsArr);
         var $table = React.DOM.table({}, $thead, $tbody);
         return $table
     },
