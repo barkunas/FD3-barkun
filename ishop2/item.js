@@ -12,7 +12,7 @@ var Item = React.createClass({
             : null;
     },
     rowHandler: function () {
-        this.setState({ color: !this.state.color })
+        this.props.paintItem(this.props.data.URL)
     },
     render: function () {
         var data = this.props.data;
@@ -21,7 +21,7 @@ var Item = React.createClass({
         var $tdURL = React.DOM.td({}, getImagePath(data.URL));
         var $tdQuantity = React.DOM.td({}, data.Quantity);
         var $tdControl = React.DOM.td({}, React.DOM.button({ onClick: this.buttonHandler }, "Delete"));
-        var $tr = React.DOM.tr({ className: "Tr" + this.state.color, onClick: this.rowHandler }, $tdName, $tdPrice, $tdURL, $tdQuantity, $tdControl);
+        var $tr = React.DOM.tr({ className: "Tr" + this.props.color, onClick: this.rowHandler }, $tdName, $tdPrice, $tdURL, $tdQuantity, $tdControl);
         return $tr
     },
 });

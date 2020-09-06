@@ -32,7 +32,9 @@ var Shop = React.createClass({
             }]
         };
         this.setState({ data: newData });
-
+    },
+    paintItem: function (id) {
+        this.setState({ paintItem: id });
     },
     render: function () {
         var headNamesArr = Object.keys(this.state.data[0]).map(headName => {
@@ -42,7 +44,8 @@ var Shop = React.createClass({
 
         var $thead = React.DOM.thead({}, React.DOM.tr({}, ...headNamesArr));
         var itemsArr = this.state.data.map((itemData) => {
-            return React.createElement(Item, { data: itemData, removeItem: this.removeItem, key: itemData.Name, })
+            var color = itemData.URL==this.state.paintItem?true:false;
+            return React.createElement(Item, { data: itemData, removeItem: this.removeItem, key: itemData.Name, paintItem: this.paintItem,color:color })
         });
         var $tbody = React.DOM.tbody({}, itemsArr);
         var $table = React.DOM.table({}, $thead, $tbody);
