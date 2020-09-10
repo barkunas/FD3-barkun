@@ -1,4 +1,4 @@
-var React = require('react')
+import React from 'react';
 
 var Item = React.createClass({
     displayName: "Item",
@@ -23,7 +23,7 @@ var Item = React.createClass({
         var $tdURL = React.DOM.td({}, getImagePath(data.URL));
         var $tdQuantity = React.DOM.td({}, data.Quantity);
         var $tdControl = React.DOM.td({}, React.DOM.button({ onClick: this.buttonHandler }, "Delete"));
-        var $tr = React.DOM.tr({ className: "Tr" + this.props.color, onClick: this.rowHandler }, $tdName, $tdPrice, $tdURL, $tdQuantity, $tdControl);
+        var $tr = React.DOM.tr({ className: this.props.color?"Trtrue":"Trfalse", onClick: this.rowHandler }, $tdName, $tdPrice, $tdURL, $tdQuantity, $tdControl);
         return $tr
     },
 });
@@ -32,4 +32,4 @@ function getImagePath(name) {
     return 'img/' + name + '.jpeg'
 };
 
-module.exports =  Item;
+export default Item;

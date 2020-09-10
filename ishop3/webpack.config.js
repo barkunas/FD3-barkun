@@ -1,13 +1,15 @@
 const path = require('path');
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const extractCSS = new MiniCssExtractPlugin ({filename: './bundle.css',});
+const extractCSS = new ExtractTextPlugin({
+    filename: "bundle.css"
+});
 
 module.exports = { 
-    entry: "./src/index.js", // основной файл приложения
+    entry: "./index.js", // основной файл приложения
     output:{ 
-        path: __dirname+"/www", // путь к каталогу выходных файлов
+        path: __dirname, // путь к каталогу выходных файлов
         filename: "bundle.js"  // название создаваемого файла 
     }, 
     devtool:'source-map',
@@ -15,15 +17,9 @@ module.exports = {
         rules:[
             {
                 test: /\.css$/,
-                use: [
-                    {
-                      loader: MiniCssExtractPlugin.loader,
-                      options: {
-                        publicPath: '/www/',
-                      },
-                    },
-                    'css-loader',
-                  ],
+                use: extractCSS.extract({
+                    use: ["css-loader"]
+                })
             }            
         ] 
     },

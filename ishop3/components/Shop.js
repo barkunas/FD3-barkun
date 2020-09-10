@@ -1,6 +1,5 @@
-var React = require('react');
-var Item = require('./item')
-
+import React from 'react';
+import Item from './Item';
 
 var Shop = React.createClass({
     displayName: 'Shop',
@@ -58,4 +57,4 @@ var Shop = React.createClass({
 
 });
 
-module.exports = Shop;
+export default Shop;

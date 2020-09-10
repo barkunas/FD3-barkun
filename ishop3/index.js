@@ -1,12 +1,14 @@
-'use strict'
+"use strict";
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Shop = require('./shop')
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import Shop from './components/Shop'
+
+import './main.css'
 
 var data = require('./data.json')
 
-require('./main.css')
 
 
 ReactDOM.render(
