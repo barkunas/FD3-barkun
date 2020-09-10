@@ -1,3 +1,7 @@
+var React = require('react');
+var Item = require('./item')
+
+
 var Shop = React.createClass({
     displayName: 'Shop',
     propTypes: {
@@ -54,3 +58,4 @@ var Shop = React.createClass({
 
 });
 
+module.exports = Shop;

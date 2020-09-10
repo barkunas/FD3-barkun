@@ -1,10 +1,8 @@
 const path = require('path');
 
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const extractCSS = new ExtractTextPlugin({
-    filename: "/www/bundle.css"
-});
+const extractCSS = new MiniCssExtractPlugin ({filename: './bundle.css',});
 
 module.exports = { 
     entry: "./src/index.js", // основной файл приложения
@@ -17,9 +15,15 @@ module.exports = {
         rules:[
             {
                 test: /\.css$/,
-                use: extractCSS.extract({
-                    use: ["css-loader"]
-                })
+                use: [
+                    {
+                      loader: MiniCssExtractPlugin.loader,
+                      options: {
+                        publicPath: '/www/',
+                      },
+                    },
+                    'css-loader',
+                  ],
             }            
         ] 
     },

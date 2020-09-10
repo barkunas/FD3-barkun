@@ -1,3 +1,5 @@
+var React = require('react')
+
 var Item = React.createClass({
     displayName: "Item",
     getInitialState: function () {
@@ -29,3 +31,5 @@ var Item = React.createClass({
 function getImagePath(name) {
     return 'img/' + name + '.jpeg'
 };
+
+module.exports =  Item;
