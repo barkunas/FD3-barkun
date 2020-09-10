@@ -15,13 +15,17 @@ class Item extends React.Component {
     }
     render() {
         var data = this.props.data;
-        var $tdName = React.DOM.td({}, data.Name);
-        var $tdPrice = React.DOM.td({}, data.Price);
-        var $tdURL = React.DOM.td({}, getImagePath(data.URL));
-        var $tdQuantity = React.DOM.td({}, data.Quantity);
-        var $tdControl = React.DOM.td({}, React.DOM.button({ onClick: this.buttonHandler }, "Delete"));
-        var $tr = React.DOM.tr({ className: this.props.color ? "Trtrue" : "Trfalse", onClick: this.rowHandler }, $tdName, $tdPrice, $tdURL, $tdQuantity, $tdControl);
-        return $tr
+        return (
+            <tr className={this.props.color ? "Trtrue" : "Trfalse"} onClick={this.rowHandler} >
+                <td>{data.Name}</td>
+                <td>{data.Price}</td>
+                <td>{getImagePath(data.URL)}</td>
+                <td>{data.Quantity}</td>
+                <td>
+                    <button onClick={this.buttonHandler}>Delete</button>
+                </td>
+            </tr >
+        )
     }
 };
 

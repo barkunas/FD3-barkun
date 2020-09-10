@@ -12,7 +12,7 @@ var data = require('./data.json')
 
 
 ReactDOM.render(
-    React.createElement(Shop, { data: data }),
+    <Shop data={data}></Shop>,
     document.getElementById('container')
 );
 
