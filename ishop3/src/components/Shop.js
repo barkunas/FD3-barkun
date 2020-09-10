@@ -1,28 +1,25 @@
 import React from 'react';
 import Item from './Item';
 
-var Shop = React.createClass({
-    displayName: 'Shop',
-    propTypes: {
+class Shop extends React.Component {
+    static propTypes = {
         data: React.PropTypes.arrayOf(React.PropTypes.shape({
             id: React.PropTypes.number,
             name: React.PropTypes.string,
             price: React.PropTypes.number,
             image: React.PropTypes.string,
             balance: React.PropTypes.number,
-        })),
-    },
-    getDefaultProps: function () {
-        return {
-            data: []
-        }
-    },
-    getInitialState: function () {
-        return {
-            data: this.props.data
-        }
-    },
-    removeItem: function (name) {
+        }))
+    };
+    defaultProps = {
+        data: []
+    }
+
+    state = {
+        data: this.props.data
+    };
+
+    removeItem = (name) => {
         var newData = this.state.data.filter(item => {
             return item.Name != name
         });
@@ -35,11 +32,11 @@ var Shop = React.createClass({
             }]
         };
         this.setState({ data: newData });
-    },
-    paintItem: function (id) {
+    };
+    paintItem = (id) => {
         this.setState({ paintItem: id });
-    },
-    render: function () {
+    };
+    render() {
         var headNamesArr = Object.keys(this.state.data[0]).map(headName => {
             return React.DOM.td({}, headName)
         });
@@ -47,14 +44,13 @@ var Shop = React.createClass({
 
         var $thead = React.DOM.thead({}, React.DOM.tr({}, ...headNamesArr));
         var itemsArr = this.state.data.map((itemData) => {
-            var color = itemData.URL==this.state.paintItem?true:false;
-            return React.createElement(Item, { data: itemData, removeItem: this.removeItem, key: itemData.Name, paintItem: this.paintItem,color:color })
+            var color = itemData.URL == this.state.paintItem ? true : false;
+            return React.createElement(Item, { data: itemData, removeItem: this.removeItem, key: itemData.Name, paintItem: this.paintItem, color: color })
         });
         var $tbody = React.DOM.tbody({}, itemsArr);
         var $table = React.DOM.table({}, $thead, $tbody);
         return $table
-    },
-
-});
+    }
+};
 
 export default Shop;
