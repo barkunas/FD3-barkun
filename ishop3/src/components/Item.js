@@ -11,7 +11,7 @@ class Item extends React.Component {
             : null;
     }
     rowHandler = () => {
-        this.props.paintItem(this.props.data.URL)
+        this.props.itemRowHandler(this.props.data)
     }
     render() {
         var data = this.props.data;
