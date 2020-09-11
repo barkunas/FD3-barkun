@@ -1,6 +1,6 @@
 import React from 'react'
 
-class BottomBlock extends React.Component {
+class ItemInfo extends React.Component {
     render() {
         var blockType = this.props.type
         var itemData = this.props.itemData
@@ -8,7 +8,7 @@ class BottomBlock extends React.Component {
             case 'itemInfo':
                 return (
                 <div className={blockType}>
-                    <div>{itemData.Name}</div>
+                    <h1>{itemData.Name}</h1>
                     <div>{itemData.Price}</div>
                 </div>)
                 break;
@@ -19,4 +19,4 @@ class BottomBlock extends React.Component {
     }
 }
 
-export default BottomBlock
+export default ItemInfo
