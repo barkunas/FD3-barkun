@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Item from './Item';
 import ItemInfo from './ItemInfo';
-import NewProduct from './NewProduct'
+import NewProduct from './NewProduct';
 
 class Shop extends React.Component {
     static propTypes = {
@@ -21,10 +21,8 @@ class Shop extends React.Component {
 
     state = {
         data: this.props.data
-    };
+    }
     addItem = (itemData) => {
-        itemData.id = Math.floor(Math.random() * Math.floor(10000000));
-
         this.setState({ newProductType: 0, data: [...this.state.data, itemData], hasChengesInForm: false })
     }
     removeItem = (name) => {
@@ -32,11 +30,12 @@ class Shop extends React.Component {
             return item.Name != name
         });
         this.setState({ data: newData });
-    };
+    }
     editItem = (itemData) => {
+        var testData = getIncorrectData(itemData);
         if (!this.state.currentItemData) this.state.currentItemData = itemData;
         if (this.state.currentItemData.id != itemData.id) this.state.currentItemData = itemData;
-        this.setState({ newProductType: 2, currentItemDataForm: itemData, showItemInfo: false, paintItem: itemData.id })
+        this.setState({ newProductType: 2, currentItemDataForm: itemData, showItemInfo: false, paintItem: itemData.id, testData })
     }
     saveEditedItem = (itemData) => {
         var itemKey = itemData.id;
@@ -51,11 +50,11 @@ class Shop extends React.Component {
         this.setState({ newProductType: 0, showItemInfo: false, hasChengesInForm: false })
     }
     newProductHandler = () => {
-        this.setState({ newProductType: 1, showItemInfo: false, currentItemDataForm: undefined, paintItem: "", hasChengesInForm: true })
-    };
+        this.setState({ newProductType: 1, showItemInfo: false, currentItemDataForm: undefined, paintItem: "", hasChengesInForm: true, testData: { "Name": true, "Price": true, "URL": true, "Quantity": true, "temp": false } })
+    }
     itemRowHandler = (itemData) => {
         this.setState({ newProductType: 0, showItemInfo: true, paintItem: itemData.id, ItemInfoType: 'itemInfo', currentItemData: itemData });
-    };
+    }
     changeForm = (itemData) => {
         var testData = getIncorrectData(itemData);
         var hasChengesInForm = this.state.currentItemData ? objectСomparison(itemData, this.state.currentItemData) : false;
@@ -106,16 +105,17 @@ class Shop extends React.Component {
 
 function objectСomparison(obj1, obj2) {
     for (let key in obj1) {
-        if (obj1[key] != obj2[key]) return true
+        if (obj1[key] != obj2[key]) return true;
     }
     return false
-}
+};
 function getIncorrectData(data) {
     return {
-        Name: typeof data.Name == 'string' && data.Name.length > 0,
-        Price: typeof +data.Price == 'number' && (data.Price.length + '') > 0,
-        URL: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(data.URL),
-        Quantity: Number.isInteger(+data.Quantity) && (data.Quantity.length + '') > 0
+        Name: (typeof data.Name == 'string' && data.Name.length > 0),
+        Price: (typeof +data.Price == 'number' && (+data.Price) > 0),
+        URL: (/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(data.URL)),
+        Quantity: (Number.isInteger(+data.Quantity) && (+data.Quantity) > 0)
     }
-}
+};
+
 export default Shop;

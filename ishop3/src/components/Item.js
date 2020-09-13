@@ -15,7 +15,7 @@ class Item extends React.Component {
         this.props.editItem(this.props.data)
     }
     rowHandler = () => {
-        if(!this.props.hasChengesInForm)this.props.itemRowHandler(this.props.data)
+        if (!this.props.hasChengesInForm) this.props.itemRowHandler(this.props.data)
     }
     render() {
         var data = this.props.data;

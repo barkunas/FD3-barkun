@@ -7,10 +7,11 @@ class ItemInfo extends React.Component {
         switch (blockType) {
             case 'itemInfo':
                 return (
-                <div className={blockType}>
-                    <h1>{itemData.Name}</h1>
-                    <div>{itemData.Price}</div>
-                </div>)
+                    <div className={blockType}>
+                        <span>ID: {this.props.itemData.id}</span>
+                        <h2>{itemData.Name}</h2>
+                        <div>{itemData.Price}</div>
+                    </div>)
                 break;
 
             default:

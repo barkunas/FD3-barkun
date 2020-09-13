@@ -8,3 +8,6 @@ table{
 .Trtrue{
     background: orange;
 }
+label{
+    display: block;
+}
