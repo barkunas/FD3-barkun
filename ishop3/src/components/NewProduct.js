@@ -1,4 +1,5 @@
 import React from 'react';
+import './NewProduct.css'
 
 class NewProduct extends React.Component {
     static defaultProps = {
@@ -63,16 +64,25 @@ class NewProduct extends React.Component {
                 </button>
             )
         }
+        var isSaveBtnActive = false
+        for (const key in this.props.testData) {
+            if (!this.props.testData[key]) isSaveBtnActive = true;
+        }
+
         return (
             <div>
                 <h1>{titleText}</h1>
                 <form onSubmit={this.formAddHandler}>
                     <span>ID: </span>
                     Name: <input name="Name" value={this.props.currentItemData.Name} onChange={this.inputHandler} />
-                    Price: <input name="Price" value={this.props.currentItemData.Price} onChange={this.inputHandler} />
+                    {(this.props.testData && !this.props.testData.Name) && <span className="ErrorSpan">Какое-то странное имя, измените!</span>}
+                    Price: <input type="number" name="Price" value={this.props.currentItemData.Price} onChange={this.inputHandler} />
+                    {(this.props.testData && !this.props.testData.Price) && <span className="ErrorSpan">Введите корректное число</span>}
                     URL: <input name="URL" value={this.props.currentItemData.URL} onChange={this.inputHandler} />
-                    Quantity: <input name="Quantity" value={this.props.currentItemData.Quantity} onChange={this.inputHandler} />
-                    <button type="submit">Save</button>
+                    {(this.props.testData && !this.props.testData.URL) && <span className="ErrorSpan">Неправильный URL</span>}
+                    Quantity: <input type="number" name="Quantity" value={this.props.currentItemData.Quantity} onChange={this.inputHandler} />
+                    {(this.props.testData && !this.props.testData.Quantity) && <span className="ErrorSpan">Должно быть целое число</span>}
+                    <button type="submit" disabled={isSaveBtnActive}>Save</button>
                     <button value="Cancel" onClick={this.cancelClickHandler}>Cancel</button>
                 </form>
             </div>
