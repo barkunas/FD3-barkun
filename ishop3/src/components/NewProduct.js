@@ -97,16 +97,9 @@ class NewProduct extends React.Component {
                         <button type="submit" disabled={isSaveBtnDisable}>Save</button>
                         <button value="Cancel" onClick={this.cancelClickHandler}>Cancel</button>
                     </div>
-
-
-
-
-
-
                 </form>
             </div>
         )
-
     }
 };
 
