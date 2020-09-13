@@ -17,7 +17,7 @@ module.exports = {
     module:{ 
         rules:[
             { 
-                test: /\.js$/, // какие файлы обрабатывать
+                test: /\.jsx?$/, // какие файлы обрабатывать
                 exclude: /node_modules/, // какие файлы пропускать
                 use: { loader: "babel-loader" }
             },
@@ -31,5 +31,10 @@ module.exports = {
     },
     plugins: [
         extractCSS
-    ]
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 8081
+      }
 }

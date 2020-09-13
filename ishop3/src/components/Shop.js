@@ -29,29 +29,32 @@ class Shop extends React.Component {
         var newData = this.state.data.filter(item => {
             return item.Name != name
         });
-        /* if (newData.length == 0) {
-            newData = [{
-                Name: "-",
-                Price: "-",
-                URL: "-",
-                Quantity: "-"
-            }]
-        }; */
         this.setState({ data: newData });
     };
     editItem = (itemData) => {
-        
-        console.log(itemData)
+        this.setState({newProductType: 2,currentItemData:itemData})
+    }
+    saveEditedItem = (itemData)=>{
+        var itemKey = itemData.URL;
+        var currItemIndex = this.state.data.findIndex((item)=>{
+            return item.URL==itemKey
+        })
+        var newData = this.state.data.slice()
+        newData[currItemIndex]=itemData
+        this.setState({data:newData})
     }
     resetBottomBlock = () => {
-        this.setState({ newProductIsActive: false, showItemInfo: false })
+        this.setState({ newProductType: 0, showItemInfo: false })
     }
     newProductHandler = () => {
-        this.setState({ newProductIsActive: true, showItemInfo: false })
+        this.setState({ newProductType: 1, showItemInfo: false ,currentItemData:undefined})
     };
     itemRowHandler = (itemData) => {
-        this.setState({ newProductIsActive: false, showItemInfo: true, paintItem: itemData.URL, ItemInfoType: 'itemInfo', currentItemData: itemData });
+        this.setState({ newProductType: 0, showItemInfo: true, paintItem: itemData.URL, ItemInfoType: 'itemInfo', currentItemData: itemData });
     };
+    changeForm=(itemData)=>{
+        this.setState({currentItemData: itemData})
+    }
     render() {
         var itemsArr = this.state.data.map((itemData) => {
             var color = itemData.URL == this.state.paintItem ? true : false;
@@ -76,7 +79,7 @@ class Shop extends React.Component {
                         {itemsArr}
                     </tbody>
                 </table>
-                <NewProduct resetBottomBlock={this.resetBottomBlock} addItem={this.addItem} newProductHandler={this.newProductHandler} isActive={this.state.newProductIsActive} />
+                <NewProduct saveEditedItem={this.saveEditedItem} changeForm={this.changeForm} resetBottomBlock={this.resetBottomBlock} addItem={this.addItem} newProductHandler={this.newProductHandler} type={this.state.newProductType} currentItemData={this.state.currentItemData} />
                 {
                     (this.state.showItemInfo) ?
                         (<ItemInfo type={this.state.ItemInfoType} itemData={this.state.currentItemData} />)
