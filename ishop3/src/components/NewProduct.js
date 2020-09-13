@@ -29,6 +29,7 @@ class NewProduct extends React.Component {
                 break;
             case 2:
                 this.props.saveEditedItem({
+                    id: this.props.currentItemData.id,
                     Name: target.Name.value,
                     Price: target.Price.value,
                     URL: target.URL.value,

@@ -15,7 +15,7 @@ class Shop extends React.Component {
             balance: PropTypes.number,
         }))
     };
-    defaultProps = {
+    static defaultProps = {
         data: []
     }
 
@@ -35,9 +35,9 @@ class Shop extends React.Component {
         this.setState({newProductType: 2,currentItemData:itemData})
     }
     saveEditedItem = (itemData)=>{
-        var itemKey = itemData.URL;
+        var itemKey = itemData.id;
         var currItemIndex = this.state.data.findIndex((item)=>{
-            return item.URL==itemKey
+            return item.id==itemKey
         })
         var newData = this.state.data.slice()
         newData[currItemIndex]=itemData
@@ -59,7 +59,7 @@ class Shop extends React.Component {
         var itemsArr = this.state.data.map((itemData) => {
             var color = itemData.URL == this.state.paintItem ? true : false;
             return (
-                <Item data={itemData} editItem={this.editItem} removeItem={this.removeItem} key={itemData.Name} itemRowHandler={this.itemRowHandler} color={color} />
+                <Item data={itemData} editItem={this.editItem} removeItem={this.removeItem} key={itemData.id} itemRowHandler={this.itemRowHandler} color={color} />
             )
         });
         return (
