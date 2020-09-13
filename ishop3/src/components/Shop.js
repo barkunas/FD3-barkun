@@ -32,7 +32,7 @@ class Shop extends React.Component {
         this.setState({ data: newData });
     };
     editItem = (itemData) => {
-        this.setState({newProductType: 2,currentItemData:itemData})
+        this.setState({newProductType: 2,currentItemDataForm:itemData, showItemInfo: false, paintItem: itemData.URL})
     }
     saveEditedItem = (itemData)=>{
         var itemKey = itemData.id;
@@ -44,22 +44,23 @@ class Shop extends React.Component {
         this.setState({data:newData})
     }
     resetBottomBlock = () => {
-        this.setState({ newProductType: 0, showItemInfo: false })
+        this.setState({ newProductType: 0, showItemInfo: false,hasChengesInForm:false })
     }
     newProductHandler = () => {
-        this.setState({ newProductType: 1, showItemInfo: false ,currentItemData:undefined})
+        this.setState({ newProductType: 1, showItemInfo: false ,currentItemDataForm:undefined})
     };
     itemRowHandler = (itemData) => {
         this.setState({ newProductType: 0, showItemInfo: true, paintItem: itemData.URL, ItemInfoType: 'itemInfo', currentItemData: itemData });
     };
     changeForm=(itemData)=>{
-        this.setState({currentItemData: itemData})
+        var hasChengesInForm = objectСomparison(itemData,this.state.currentItemData)
+        this.setState({currentItemDataForm: itemData,hasChengesInForm})
     }
     render() {
         var itemsArr = this.state.data.map((itemData) => {
             var color = itemData.URL == this.state.paintItem ? true : false;
             return (
-                <Item data={itemData} editItem={this.editItem} removeItem={this.removeItem} key={itemData.id} itemRowHandler={this.itemRowHandler} color={color} />
+                <Item data={itemData} editItem={this.editItem} removeItem={this.removeItem} key={itemData.id} itemRowHandler={this.itemRowHandler} color={color} hasChengesInForm={this.state.hasChengesInForm}/>
             )
         });
         return (
@@ -79,7 +80,14 @@ class Shop extends React.Component {
                         {itemsArr}
                     </tbody>
                 </table>
-                <NewProduct saveEditedItem={this.saveEditedItem} changeForm={this.changeForm} resetBottomBlock={this.resetBottomBlock} addItem={this.addItem} newProductHandler={this.newProductHandler} type={this.state.newProductType} currentItemData={this.state.currentItemData} />
+                <NewProduct 
+                saveEditedItem={this.saveEditedItem} 
+                changeForm={this.changeForm} 
+                resetBottomBlock={this.resetBottomBlock} 
+                addItem={this.addItem} 
+                newProductHandler={this.newProductHandler} 
+                type={this.state.newProductType} 
+                currentItemData={this.state.currentItemDataForm} />
                 {
                     (this.state.showItemInfo) ?
                         (<ItemInfo type={this.state.ItemInfoType} itemData={this.state.currentItemData} />)
@@ -89,5 +97,12 @@ class Shop extends React.Component {
         )
     }
 };
+
+function objectСomparison(obj1,obj2){
+    for (let key in obj1) {
+        if (obj1[key]!=obj2[key]) return true
+    }
+    return false
+}
 
 export default Shop;

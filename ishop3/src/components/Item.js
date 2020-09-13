@@ -15,7 +15,7 @@ class Item extends React.Component {
         this.props.editItem(this.props.data)
     }
     rowHandler = () => {
-        this.props.itemRowHandler(this.props.data)
+        if(!this.props.hasChengesInForm)this.props.itemRowHandler(this.props.data)
     }
     render() {
         var data = this.props.data;
@@ -26,10 +26,10 @@ class Item extends React.Component {
                 <td>{getImagePath(data.URL)}</td>
                 <td>{data.Quantity}</td>
                 <td>
-                    <button onClick={this.editButtonHandler}>Edit</button>
+                    <button onClick={this.editButtonHandler} disabled={this.props.hasChengesInForm}>Edit</button>
                 </td>
                 <td>
-                    <button onClick={this.delButtonHandler}>Delete</button>
+                    <button onClick={this.delButtonHandler} disabled={this.props.hasChengesInForm}>Delete</button>
                 </td>
             </tr >
         )

@@ -53,8 +53,6 @@ class NewProduct extends React.Component {
     }
     render() {
         var titleText = this.props.type == 2 ? 'Edit exiting Product' : 'Add new product';
-        var buttonSaveIsActive = this.props.type == 1
-        var buttonEditIsActive = this.props.type == 2
         if (this.props.type == 2) {
             this
         }
