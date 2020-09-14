@@ -23,7 +23,7 @@ class Item extends React.Component {
             <tr className={this.props.color ? "Trtrue" : "Trfalse"} onClick={this.rowHandler} >
                 <td>{data.Name}</td>
                 <td>{data.Price}</td>
-                <td>{getImagePath(data.URL)}</td>
+                <td>{data.URL}</td>
                 <td>{data.Quantity}</td>
                 <td>
                     <button onClick={this.editButtonHandler} disabled={this.props.hasChengesInForm}>Edit</button>
@@ -36,8 +36,5 @@ class Item extends React.Component {
     }
 };
 
-function getImagePath(name) {
-    return 'img/' + name + '.jpeg'
-};
 
 export default Item;
