@@ -4,7 +4,7 @@ import './NewProduct.css';
 class NewProduct extends React.Component {
     static defaultProps = {
         currentItemData: {
-            id: Math.floor(Math.random() * Math.floor(10000000)),
+            id: "",
             Name: "",
             Price: "",
             URL: "",
@@ -45,10 +45,11 @@ class NewProduct extends React.Component {
 
     }
     inputHandler = (event) => {
+        var id = this.id
         var Name = event.target.name;
         var value = event.target.value;
         var data = this.props.currentItemData;
-        var newData = { ...data, [Name]: value };
+        var newData = { ...data, [Name]: value,id };
         this.props.changeForm(newData);
     }
     render() {
@@ -66,12 +67,14 @@ class NewProduct extends React.Component {
 
         var isSaveBtnDisable = Object.values(this.props.testData).some(e => { return e == false });
 
+        this.id = this.props.currentItemData.id||Math.floor(Math.random() * Math.floor(10000000))
+
         return (
             <div>
                 <h1>{titleText}</h1>
                 <form onSubmit={this.formAddHandler}>
                     <div>
-                        <span>ID: {this.props.currentItemData.id}</span>
+                        <span>ID: {this.id}</span>
                     </div>
                     <div>
                         <div>Name:</div>
