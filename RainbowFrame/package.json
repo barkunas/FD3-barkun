@@ -1,7 +1,7 @@
 {
-  "name": "votesblock",
+  "name": "rainbowframe",
   "version": "1.0.0",
-  "description": "ishop3",
+  "description": "rainbowFrame",
   "main": "App.js",
   "scripts": {
     "build": ".\\node_modules\\.bin\\webpack",
