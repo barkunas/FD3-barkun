@@ -1,0 +1,1241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test add client MobileCompany 1`] = `
+<MobileCompany
+  clients={
+    Array [
+      Object {
+        "balance": 200,
+        "company": 0,
+        "id": 101,
+        "name0": "Иван",
+        "name1": "Иванов",
+        "name2": "Иванович",
+        "status": 1,
+      },
+      Object {
+        "balance": 250,
+        "company": 0,
+        "id": 105,
+        "name0": "Сидор",
+        "name1": "Сидоров",
+        "name2": "Сидорович",
+        "status": 1,
+      },
+      Object {
+        "balance": 180,
+        "company": 0,
+        "id": 110,
+        "name0": "Петя",
+        "name1": "Петров",
+        "name2": "Петрович",
+        "status": 0,
+      },
+      Object {
+        "balance": 220,
+        "company": 1,
+        "id": 120,
+        "name0": "Жора",
+        "name1": "Григорьев",
+        "name2": "Григорьевич",
+        "status": 0,
+      },
+    ]
+  }
+  companies={
+    Array [
+      "МТС",
+      "Velcom",
+    ]
+  }
+>
+  <div
+    className="MobileCompany"
+  >
+    <div>
+      <input
+        onClick={[Function]}
+        type="button"
+        value="Все"
+      />
+      <input
+        onClick={[Function]}
+        type="button"
+        value="Активные"
+      />
+      <input
+        onClick={[Function]}
+        type="button"
+        value="Заблокированные"
+      />
+    </div>
+    <table
+      className="MobileCompanyClients"
+    >
+      <thead>
+        <tr>
+          <th>
+            Фамилия
+          </th>
+          <th>
+            Имя
+          </th>
+          <th>
+            Отчество
+          </th>
+          <th>
+            Баланс
+          </th>
+          <th>
+            Статус
+          </th>
+          <th>
+            Редактировать
+          </th>
+          <th>
+            Удалить
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <MobileClient
+          info={
+            Object {
+              "balance": 200,
+              "company": 0,
+              "id": 101,
+              "name0": "Иван",
+              "name1": "Иванов",
+              "name2": "Иванович",
+              "status": 1,
+            }
+          }
+          key="ИванИвановИванович200"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Иван
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Иванов
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Иванович
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              200
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Активный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+        <MobileClient
+          info={
+            Object {
+              "balance": 250,
+              "company": 0,
+              "id": 105,
+              "name0": "Сидор",
+              "name1": "Сидоров",
+              "name2": "Сидорович",
+              "status": 1,
+            }
+          }
+          key="СидорСидоровСидорович250"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Сидор
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Сидоров
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Сидорович
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              250
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Активный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+        <MobileClient
+          info={
+            Object {
+              "balance": 180,
+              "company": 0,
+              "id": 110,
+              "name0": "Петя",
+              "name1": "Петров",
+              "name2": "Петрович",
+              "status": 0,
+            }
+          }
+          key="ПетяПетровПетрович180"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Петя
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Петров
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Петрович
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              180
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Заблокированный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+        <MobileClient
+          info={
+            Object {
+              "balance": 220,
+              "company": 1,
+              "id": 120,
+              "name0": "Жора",
+              "name1": "Григорьев",
+              "name2": "Григорьевич",
+              "status": 0,
+            }
+          }
+          key="ЖораГригорьевГригорьевич220"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Жора
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Григорьев
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Григорьевич
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              220
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Заблокированный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+      </tbody>
+    </table>
+    <div>
+      <input
+        className="newUserBtn"
+        onClick={[Function]}
+        type="button"
+        value="Создать нового"
+      />
+    </div>
+  </div>
+</MobileCompany>
+`;
+
+exports[`test add client MobileCompany 2`] = `
+<MobileCompany
+  clients={
+    Array [
+      Object {
+        "balance": 200,
+        "company": 0,
+        "id": 101,
+        "name0": "Иван",
+        "name1": "Иванов",
+        "name2": "Иванович",
+        "status": 1,
+      },
+      Object {
+        "balance": 250,
+        "company": 0,
+        "id": 105,
+        "name0": "Сидор",
+        "name1": "Сидоров",
+        "name2": "Сидорович",
+        "status": 1,
+      },
+      Object {
+        "balance": 180,
+        "company": 0,
+        "id": 110,
+        "name0": "Петя",
+        "name1": "Петров",
+        "name2": "Петрович",
+        "status": 0,
+      },
+      Object {
+        "balance": 220,
+        "company": 1,
+        "id": 120,
+        "name0": "Жора",
+        "name1": "Григорьев",
+        "name2": "Григорьевич",
+        "status": 0,
+      },
+    ]
+  }
+  companies={
+    Array [
+      "МТС",
+      "Velcom",
+    ]
+  }
+>
+  <div
+    className="MobileCompany"
+  >
+    <div>
+      <input
+        onClick={[Function]}
+        type="button"
+        value="Все"
+      />
+      <input
+        onClick={[Function]}
+        type="button"
+        value="Активные"
+      />
+      <input
+        onClick={[Function]}
+        type="button"
+        value="Заблокированные"
+      />
+    </div>
+    <table
+      className="MobileCompanyClients"
+    >
+      <thead>
+        <tr>
+          <th>
+            Фамилия
+          </th>
+          <th>
+            Имя
+          </th>
+          <th>
+            Отчество
+          </th>
+          <th>
+            Баланс
+          </th>
+          <th>
+            Статус
+          </th>
+          <th>
+            Редактировать
+          </th>
+          <th>
+            Удалить
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <MobileClient
+          info={
+            Object {
+              "balance": 200,
+              "company": 0,
+              "id": 101,
+              "name0": "Иван",
+              "name1": "Иванов",
+              "name2": "Иванович",
+              "status": 1,
+            }
+          }
+          key="ИванИвановИванович200"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Иван
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Иванов
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Иванович
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              200
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Активный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+        <MobileClient
+          info={
+            Object {
+              "balance": 250,
+              "company": 0,
+              "id": 105,
+              "name0": "Сидор",
+              "name1": "Сидоров",
+              "name2": "Сидорович",
+              "status": 1,
+            }
+          }
+          key="СидорСидоровСидорович250"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Сидор
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Сидоров
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Сидорович
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              250
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Активный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+        <MobileClient
+          info={
+            Object {
+              "balance": 180,
+              "company": 0,
+              "id": 110,
+              "name0": "Петя",
+              "name1": "Петров",
+              "name2": "Петрович",
+              "status": 0,
+            }
+          }
+          key="ПетяПетровПетрович180"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Петя
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Петров
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Петрович
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              180
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Заблокированный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+        <MobileClient
+          info={
+            Object {
+              "balance": 220,
+              "company": 1,
+              "id": 120,
+              "name0": "Жора",
+              "name1": "Григорьев",
+              "name2": "Григорьевич",
+              "status": 0,
+            }
+          }
+          key="ЖораГригорьевГригорьевич220"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Жора
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Григорьев
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Григорьевич
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              220
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Заблокированный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+      </tbody>
+    </table>
+    <div>
+      <input
+        className="newUserBtn"
+        onClick={[Function]}
+        type="button"
+        value="Создать нового"
+      />
+    </div>
+    <EditClients
+      clientInfo={Object {}}
+      clients={
+        Array [
+          Object {
+            "balance": 200,
+            "company": 0,
+            "id": 101,
+            "name0": "Иван",
+            "name1": "Иванов",
+            "name2": "Иванович",
+            "status": 1,
+          },
+          Object {
+            "balance": 250,
+            "company": 0,
+            "id": 105,
+            "name0": "Сидор",
+            "name1": "Сидоров",
+            "name2": "Сидорович",
+            "status": 1,
+          },
+          Object {
+            "balance": 180,
+            "company": 0,
+            "id": 110,
+            "name0": "Петя",
+            "name1": "Петров",
+            "name2": "Петрович",
+            "status": 0,
+          },
+          Object {
+            "balance": 220,
+            "company": 1,
+            "id": 120,
+            "name0": "Жора",
+            "name1": "Григорьев",
+            "name2": "Григорьевич",
+            "status": 0,
+          },
+        ]
+      }
+    >
+      <div>
+        Имя
+        <input
+          className="input-name0"
+        />
+        Фамилия
+        <input
+          className="input-name1"
+        />
+        Отчество
+        <input
+          className="input-name2"
+        />
+        Баланс
+        <input
+          className="input-balance"
+        />
+        Статус
+        <input
+          className="input-status"
+          defaultChecked={false}
+          type="checkbox"
+        />
+        <br />
+        <input
+          className="saveNewUserBtn"
+          onClick={[Function]}
+          type="button"
+          value="сохранить"
+        />
+      </div>
+    </EditClients>
+  </div>
+</MobileCompany>
+`;
+
+exports[`test add client MobileCompany 3`] = `
+<MobileCompany
+  clients={
+    Array [
+      Object {
+        "balance": 200,
+        "company": 0,
+        "id": 101,
+        "name0": "Иван",
+        "name1": "Иванов",
+        "name2": "Иванович",
+        "status": 1,
+      },
+      Object {
+        "balance": 250,
+        "company": 0,
+        "id": 105,
+        "name0": "Сидор",
+        "name1": "Сидоров",
+        "name2": "Сидорович",
+        "status": 1,
+      },
+      Object {
+        "balance": 180,
+        "company": 0,
+        "id": 110,
+        "name0": "Петя",
+        "name1": "Петров",
+        "name2": "Петрович",
+        "status": 0,
+      },
+      Object {
+        "balance": 220,
+        "company": 1,
+        "id": 120,
+        "name0": "Жора",
+        "name1": "Григорьев",
+        "name2": "Григорьевич",
+        "status": 0,
+      },
+      Object {
+        "balance": "",
+        "name0": "",
+        "name1": "",
+        "name2": "",
+        "status": false,
+      },
+    ]
+  }
+  companies={
+    Array [
+      "МТС",
+      "Velcom",
+    ]
+  }
+>
+  <div
+    className="MobileCompany"
+  >
+    <div>
+      <input
+        onClick={[Function]}
+        type="button"
+        value="Все"
+      />
+      <input
+        onClick={[Function]}
+        type="button"
+        value="Активные"
+      />
+      <input
+        onClick={[Function]}
+        type="button"
+        value="Заблокированные"
+      />
+    </div>
+    <table
+      className="MobileCompanyClients"
+    >
+      <thead>
+        <tr>
+          <th>
+            Фамилия
+          </th>
+          <th>
+            Имя
+          </th>
+          <th>
+            Отчество
+          </th>
+          <th>
+            Баланс
+          </th>
+          <th>
+            Статус
+          </th>
+          <th>
+            Редактировать
+          </th>
+          <th>
+            Удалить
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <MobileClient
+          info={
+            Object {
+              "balance": 200,
+              "company": 0,
+              "id": 101,
+              "name0": "Иван",
+              "name1": "Иванов",
+              "name2": "Иванович",
+              "status": 1,
+            }
+          }
+          key="ИванИвановИванович200"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Иван
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Иванов
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Иванович
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              200
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Активный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+        <MobileClient
+          info={
+            Object {
+              "balance": 250,
+              "company": 0,
+              "id": 105,
+              "name0": "Сидор",
+              "name1": "Сидоров",
+              "name2": "Сидорович",
+              "status": 1,
+            }
+          }
+          key="СидорСидоровСидорович250"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Сидор
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Сидоров
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Сидорович
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              250
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Активный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+        <MobileClient
+          info={
+            Object {
+              "balance": 180,
+              "company": 0,
+              "id": 110,
+              "name0": "Петя",
+              "name1": "Петров",
+              "name2": "Петрович",
+              "status": 0,
+            }
+          }
+          key="ПетяПетровПетрович180"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Петя
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Петров
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Петрович
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              180
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Заблокированный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+        <MobileClient
+          info={
+            Object {
+              "balance": 220,
+              "company": 1,
+              "id": 120,
+              "name0": "Жора",
+              "name1": "Григорьев",
+              "name2": "Григорьевич",
+              "status": 0,
+            }
+          }
+          key="ЖораГригорьевГригорьевич220"
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            >
+              Жора
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Григорьев
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Григорьевич
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              220
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              Заблокированный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+        <MobileClient
+          info={
+            Object {
+              "balance": "",
+              "name0": "",
+              "name1": "",
+              "name2": "",
+              "status": false,
+            }
+          }
+          key=""
+        >
+          <tr
+            className="MobileClient"
+          >
+            <td
+              className="MobileClientFIO"
+            />
+            <td
+              className="MobileClientFIO"
+            />
+            <td
+              className="MobileClientFIO"
+            />
+            <td
+              className="MobileClientFIO"
+            />
+            <td
+              className="MobileClientFIO"
+            >
+              Заблокированный
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="editBtn"
+                onClick={[Function]}
+                type="button"
+                value="редактировать"
+              />
+            </td>
+            <td
+              className="MobileClientFIO"
+            >
+              <input
+                className="removeBtn"
+                onClick={[Function]}
+                type="button"
+                value="удалить"
+              />
+            </td>
+          </tr>
+        </MobileClient>
+      </tbody>
+    </table>
+    <div>
+      <input
+        className="newUserBtn"
+        onClick={[Function]}
+        type="button"
+        value="Создать нового"
+      />
+    </div>
+  </div>
+</MobileCompany>
+`;
