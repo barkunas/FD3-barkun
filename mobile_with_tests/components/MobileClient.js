@@ -5,7 +5,6 @@ import './MobileClient.css';
 import mobileEvents from './events';
 
 class MobileClient extends React.PureComponent {
-
   editBtnHandler = () => {
     mobileEvents.emit('editClient', this.props.info)
   }

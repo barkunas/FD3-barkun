@@ -32,12 +32,12 @@ class MobileCompany extends React.PureComponent {
   }
   saveEditedClient = (client) => {
     if (this.state.editClient.name0) {
-        var temp = this.state.editClient
-        temp.name0 =  client.name0
-        temp.name1 = client.name1
-        temp.name2 = client.name2
-        temp.balance = client.balance
-        temp.status = client.status
+      var temp = this.state.editClient
+      temp.name0 = client.name0
+      temp.name1 = client.name1
+      temp.name2 = client.name2
+      temp.balance = client.balance
+      temp.status = client.status
     } else {
       this.state.clients.push(client)
     }
@@ -79,7 +79,6 @@ class MobileCompany extends React.PureComponent {
   render() {
 
     console.log("MobileCompany render");
-    console.log(this.props.clients)
 
     var clientsCode = this.state.clients.map((client, i) =>
       client.status != this.state.statusFilter && <MobileClient key={`${client.name0}${client.name1}${client.name2}${client.balance}`} info={client} />

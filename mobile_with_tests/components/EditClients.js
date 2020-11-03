@@ -3,7 +3,7 @@ import mobileEvents from './events'
 
 class EditClients extends React.PureComponent {
     form = {}
-    state = {...this.props.clientInfo}
+    state = { ...this.props.clientInfo }
     saveBtnHandler = () => {
         var status = this.form.status.checked || false;
         mobileEvents.emit('saveEditedClient', {

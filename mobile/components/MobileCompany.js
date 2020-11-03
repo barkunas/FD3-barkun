@@ -31,23 +31,20 @@ class MobileCompany extends React.PureComponent {
     this.setState(newState)
   }
   saveEditedClient = (client) => {
+    if (this.state.editClient.name0) {
+      var temp = this.state.editClient
+      temp.name0 = client.name0
+      temp.name1 = client.name1
+      temp.name2 = client.name2
+      temp.balance = client.balance
+      temp.status = client.status
+      temp.company = client.company;
+    } else {
+      this.state.clients.push(client)
+    }
     var newState = {
       ...this.state,
-      editClient:null
-    }
-    let newClient = {}
-    if (client.id) {
-      newClient = newState.clients.find((elem) => elem.id == client.id);
-      newClient.name0 = client.name0;
-      newClient.name1 = client.name1;
-      newClient.name2 = client.name2;
-      newClient.balance = client.balance;
-      newClient.company = client.company;
-      newClient.status = client.status;
-      newClient.id = +new Date;
-    } else {
-      client.id = +new Date;
-      newState.clients.push(client)
+      editClient: null
     }
     this.setState(newState)
   }
@@ -61,7 +58,7 @@ class MobileCompany extends React.PureComponent {
   removeClientFunc = (client) => {
     var newState = {
       ...this.state,
-      clients:this.state.clients.filter((elem)=>elem.id!=client.id)
+      clients: this.state.clients.filter((elem) => elem.id != client.id)
     }
     this.setState(newState)
   }
@@ -85,7 +82,7 @@ class MobileCompany extends React.PureComponent {
     console.log("MobileCompany render");
 
     var clientsCode = this.state.clients.map(client =>
-      client.company == this.state.currentCompany && client.status != this.state.statusFilter && <MobileClient key={client.id} info={client} />
+      client.company == this.state.currentCompany && client.status != this.state.statusFilter && <MobileClient key={`${client.name0}${client.name1}${client.name2}${client.balance}`} info={client} />
     );
 
     return (
@@ -120,7 +117,7 @@ class MobileCompany extends React.PureComponent {
 
         </table>
         <div>
-          <input type="button" value="Создать нового" onClick={this.createUserBtnHandler} />
+          <input type="button" className="newUserBtn" value="Создать нового" onClick={this.createUserBtnHandler} />
         </div>
         {this.state.editClient && <EditClients clientInfo={this.state.editClient} clients={this.state.clients} />}
       </div>
