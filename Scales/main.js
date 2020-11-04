@@ -19,10 +19,10 @@ var Scales = /** @class */ (function () {
         this.products.push(item);
     };
     Scales.prototype.getsSummScale = function () {
-        return this.products.reduce(function (acc, item) { return acc + item.weight; }, 0);
+        return this.products.reduce(function (acc, item) { return acc + item.getwWeight(); }, 0);
     };
     Scales.prototype.getNameList = function () {
-        return this.products.map(function (item) { return item.name; });
+        return this.products.map(function (item) { return item.getName(); });
     };
     return Scales;
 }());
@@ -31,11 +31,11 @@ var Product = /** @class */ (function () {
         this.name = name;
         this.weight = weight;
     }
-    Product.prototype.setScale = function () {
-        return 5;
+    Product.prototype.getwWeight = function () {
+        return this.weight;
     };
     Product.prototype.getName = function () {
-        return 'sadasd';
+        return this.name;
     };
     return Product;
 }());

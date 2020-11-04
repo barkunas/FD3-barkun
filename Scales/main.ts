@@ -7,10 +7,10 @@ class Scales {
         this.products.push(item)
     }
     getsSummScale():number{
-        return this.products.reduce((acc,item)=>acc+item.weight,0)
+        return this.products.reduce((acc,item)=>acc+item.getwWeight(),0)
     }
     getNameList():String[]{
-        return this.products.map(item=>item.name)
+        return this.products.map(item=>item.getName())
     }
 }
 class Product{
@@ -20,11 +20,11 @@ class Product{
         this.name = name
         this.weight = weight;
     }
-    setScale():number{
-        return 5
+    getwWeight():number{
+        return this.weight
     }
     getName():string{
-        return 'sadasd'
+        return this.name
     }
 }
 class Apple extends Product{
