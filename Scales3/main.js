@@ -10,12 +10,12 @@ var Scales = /** @class */ (function () {
     ;
     Scales.prototype.getSumScale = function () {
         var summ = 0;
-        this.engine.products.forEach(function (item) { summ += item.getWeight(); });
+        this.engine.getItemList().forEach(function (item) { summ = summ + item.weight; });
         return summ;
     };
     ;
     Scales.prototype.getNameList = function () {
-        return this.engine.products.map(function (item) { return item.getName(); });
+        return this.engine.getItemList().map(function (item) { return item.name; });
     };
     ;
     return Scales;
@@ -25,6 +25,10 @@ var ScalesStorageEngineArray = /** @class */ (function () {
     function ScalesStorageEngineArray() {
         this.products = [];
     }
+    ScalesStorageEngineArray.prototype.getItemList = function () {
+        return this.products;
+    };
+    ;
     ScalesStorageEngineArray.prototype.addItem = function (item) {
         this.products.push(item);
     };
@@ -41,35 +45,50 @@ var ScalesStorageEngineArray = /** @class */ (function () {
 }());
 var ScalesStorageEngineLocalStorage = /** @class */ (function () {
     function ScalesStorageEngineLocalStorage() {
-        this.products = localStorage.products = [];
+        localStorage.setItem('products', '[]');
     }
+    ScalesStorageEngineLocalStorage.prototype.getItemList = function () {
+        var simpleArray = JSON.parse(localStorage.products);
+        return simpleArray.map(function (item) { return new Product(item.name, item.weight); });
+    };
     ScalesStorageEngineLocalStorage.prototype.addItem = function (item) {
-        this.products.push(item);
+        var itemsObj = JSON.parse(localStorage.products);
+        itemsObj.push(item);
+        var newTextItems = JSON.stringify(itemsObj);
+        localStorage.setItem('products', newTextItems);
     };
     ;
     ScalesStorageEngineLocalStorage.prototype.getItem = function (index) {
-        return this.products[index];
+        return this.getItemList()[index];
     };
     ;
     ScalesStorageEngineLocalStorage.prototype.getCount = function () {
-        return this.products.length;
+        return this.getItemList().length;
     };
     ;
     return ScalesStorageEngineLocalStorage;
 }());
 var Product = /** @class */ (function () {
     function Product(name, weight) {
-        this.name = name;
-        this.weight = weight;
+        this._name = name;
+        this._weight = weight;
     }
     ;
-    Product.prototype.getWeight = function () {
-        return this.weight;
-    };
+    Object.defineProperty(Product.prototype, "weight", {
+        get: function () {
+            return this._weight;
+        },
+        enumerable: false,
+        configurable: true
+    });
     ;
-    Product.prototype.getName = function () {
-        return this.name;
-    };
+    Object.defineProperty(Product.prototype, "name", {
+        get: function () {
+            return this._name;
+        },
+        enumerable: false,
+        configurable: true
+    });
     ;
     return Product;
 }());
@@ -89,4 +108,9 @@ var scaleLS = new Scales(new ScalesStorageEngineLocalStorage());
 scaleLS.addItem(item1);
 scaleLS.addItem(item2);
 scaleLS.addItem(item3);
-console.log(localStorage.products);
+var summScaleLS = scaleLS.getSumScale();
+var nameListLS = scaleLS.getNameList();
+console.log(summScaleLS);
+console.log(nameListLS);
+console.log("localStorage: " + localStorage.products);
+//# sourceMappingURL=main.js.map

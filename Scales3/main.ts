@@ -1,71 +1,80 @@
-interface IStorageEngine{
-    products:Product[];
-    addItem(item:Product):void;
-    getItem(index:number):Product;
-    getCount():number;
+interface IStorageEngine {
+    getItemList(): Product[]
+    addItem(item: Product): void;
+    getItem(index: number): Product;
+    getCount(): number;
 };
 class Scales<StorageEngine extends IStorageEngine>{
-    constructor(public engine:StorageEngine){
+    constructor(public engine: StorageEngine) {
     };
-    addItem(item:Product){
+    addItem(item: Product) {
         this.engine.addItem(item)
     };
-    getSumScale():number{
+    getSumScale(): number {
         let summ = 0;
-        this.engine.products.forEach((item:Product)=>{summ+=item.getWeight()})
+        this.engine.getItemList().forEach((item: Product) => { summ = summ + item.weight })
         return summ;
     };
-    getNameList():string[]{
-        return this.engine.products.map((item:Product)=>{return item.getName()})
+    getNameList(): string[] {
+        return this.engine.getItemList().map((item: Product) => { return item.name })
     };
 };
-class ScalesStorageEngineArray implements IStorageEngine{
-    products:Product[] = [];
-    addItem(item:Product){
-        this.products.push(item)
+class ScalesStorageEngineArray implements IStorageEngine {
+    products: Product[] = [];
+    getItemList() {
+        return this.products;
     };
-    getItem(index:number){
-        return this.products[index]
+    addItem(item: Product) {
+        this.products.push(item);
+    };
+    getItem(index: number) {
+        return this.products[index];
 
     };
-    getCount():number{
-        return this.products.length
+    getCount(): number {
+        return this.products.length;
     };
 }
-class ScalesStorageEngineLocalStorage implements IStorageEngine{
-    products:Product[] = localStorage.products = [];
-    constructor(){
+class ScalesStorageEngineLocalStorage implements IStorageEngine {
+    constructor() {
+        localStorage.setItem('products', '[]')
     }
-    addItem(item:Product){
-        this.products.push(item)
+    getItemList() {
+        let simpleArray:Product[] = JSON.parse(localStorage.products);
+        return simpleArray.map((item:Product) => { return new Product(item.name, item.weight) });
+    }
+    addItem(item: Product) {
+        let itemsObj: Product[] = JSON.parse(localStorage.products);
+        itemsObj.push(item);
+        var newTextItems = JSON.stringify(itemsObj)
+        localStorage.setItem('products', newTextItems)
     };
-    getItem(index:number){
-        return this.products[index]
+    getItem(index: number) {
+        return this.getItemList()[index]
 
     };
-    getCount():number{
-        return this.products.length
+    getCount(): number {
+        return this.getItemList().length
     };
 }
-
 class Product {
-    private weight:number;
-    private name:string;
-    constructor(name:string,weight:number){
-        this.name = name;
-        this.weight = weight;
+    private _weight: number;
+    private _name: string;
+    constructor(name: string, weight: number) {
+        this._name = name;
+        this._weight = weight;
     };
-    getWeight():number{
-        return this.weight
+    public get weight(): number {
+        return this._weight
     };
-    getName():string{
-        return this.name
+    public get name(): string {
+        return this._name
     };
 };
 
-let item1 = new Product('Green apple',0.22);
-let item2 = new Product('Green small apple',0.43);
-let item3 = new Product('Bad apple',0.01);
+let item1 = new Product('Green apple', 0.22);
+let item2 = new Product('Green small apple', 0.43);
+let item3 = new Product('Bad apple', 0.01);
 
 let scale = new Scales<ScalesStorageEngineArray>(new ScalesStorageEngineArray());
 
@@ -85,5 +94,10 @@ let scaleLS = new Scales<ScalesStorageEngineLocalStorage>(new ScalesStorageEngin
 scaleLS.addItem(item1);
 scaleLS.addItem(item2);
 scaleLS.addItem(item3);
+let summScaleLS = scaleLS.getSumScale();
+let nameListLS = scaleLS.getNameList();
 
-console.log(localStorage.products)
+console.log(summScaleLS);
+console.log(nameListLS);
+
+console.log(`localStorage: ${localStorage.products}`)
